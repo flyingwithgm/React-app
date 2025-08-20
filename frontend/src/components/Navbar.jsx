@@ -1,27 +1,18 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-  const navigate = useNavigate();
-
-  const logout = () => {
-    localStorage.removeItem("token");
-    navigate("/login");
-  };
-
   return (
     <nav className="bg-blue-600 text-white p-4 flex justify-between">
-      <h1 className="font-bold text-xl cursor-pointer" onClick={() => navigate("/dashboard")}>
-        GM73 | Dashboard
-      </h1>
-      <button
-        onClick={logout}
-        className="bg-red-500 hover:bg-red-600 px-4 py-1 rounded"
-      >
-        Logout
-      </button>
+      <div className="text-xl font-bold">AI + Aviation Dashboard</div>
+      <div className="space-x-4">
+        <Link to="/" className="hover:underline">Dashboard</Link>
+        <Link to="/resume" className="hover:underline">Resume</Link>
+        <Link to="/essay" className="hover:underline">Essay</Link>
+        <Link to="/documents" className="hover:underline">Documents</Link>
+      </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
